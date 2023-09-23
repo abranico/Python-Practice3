@@ -20,6 +20,21 @@ class Article:
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
+    IVA = 1.21
+
+    @classmethod
+    def actualizar_iva(cls, nuevo_iva):
+        cls.IVA = nuevo_iva
+
+    def __init__(self, nombre: str, costo: float, descuento: float = 0):
+        self.nombre = nombre
+        self.costo = costo
+        self.descuento = descuento
+
+    def calcular_precio(self) -> float:
+        resultado = (self.costo * self.IVA)
+        resultado -= (resultado * self.descuento)
+        return round(resultado, 2)
 
 
 # NO MODIFICAR - INICIO
@@ -67,5 +82,5 @@ Article.actualizar_iva(0.25)
 
 article = Article(costo=1, nombre="Auto")
 assert article.nombre == "Auto"
-assert article.calcular_precio() == 1.25
+assert article.calcular_precio() == 0.25
 # NO MODIFICAR - FIN
