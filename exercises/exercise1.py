@@ -18,6 +18,15 @@ class Circle:
         - Utilizar Type Hints en todos los métodos y variables
     """
 
+    def __init__(self, radio):
+        self.radio = radio
+
+    def area(self) -> float:
+        return self.radio**2 * 3.14
+
+    def perimetro(self) -> float:
+        return 2*3.14 * self.radio
+
 
 # NO MODIFICAR - INICIO
 # Test básico
